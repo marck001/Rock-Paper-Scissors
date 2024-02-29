@@ -16,7 +16,7 @@ canvas.grid(row=1, column=0, columnspan=6, rowspan=6)
 lbl1 = Label(window, text='Player', font=('Rosewood Std Fill', 24), bg='spring green')
 lbl2 = Label(window, text='Vs', font=('Helvetica', 35),bg='light sea green',fg='dark violet')
 lbl3 = Label(window, text='Computer', font=('Rosewood Std Fill', 24), bg='spring green')
-lbl_msg= Label(window,text = 'Text', font=('Algerian', 30))
+lbl_msg= Label(window,text = 'Press a button', font=('Helvetica', 32), bg='spring green',fg='white')
 #labels grid
 lbl_msg.grid(row = 3, column=2, columnspan=2,rowspan=3,  padx=10, pady=10)
 lbl1.grid(row=0, column=0, columnspan=2,padx=10, pady=10, sticky='ew')
@@ -67,7 +67,7 @@ def update_message(choice,computer_choice):
     elif((choice == "rock" and computer_choice == "paper") or
     (choice == "scissor" and computer_choice == "rock") or
     (choice == "paper" and computer_choice =="scissor")):
-        lbl_msg["text"] = "You lost"
+        lbl_msg["text"] = "You loose"
     else:
         lbl_msg["text"] = "You tie"
 
@@ -81,17 +81,23 @@ def update_choice(choice):
      #Creates canva images for user
     if(choice == "rock"):
         canvas.create_image(0, 100, anchor=NW, image=rock_s, tags="item")
+        lbl1.configure(bg='yellow')
     elif(choice == "paper"):
         canvas.create_image(0, 100, anchor=NW, image=paper_s, tags="item")
+        lbl1.configure(bg='cyan')
     else:
         canvas.create_image(0, 100, anchor=NW, image=scissor_s, tags="item")
+        lbl1.configure(bg='pink')
      #Creates canva images for computer
     if(computer_choice == "rock"):
         canvas.create_image(600, 100, anchor=NW, image=rock_s, tags="item")
+        lbl3.configure(bg='yellow')
     elif(computer_choice == "paper"):
         canvas.create_image(600, 100, anchor=NW, image=paper_s, tags="item")
+        lbl3.configure(bg='cyan')
     else:
-        canvas.create_image(600, 100, anchor=NW, image=scissor_s, tags="item")   
+        canvas.create_image(600, 100, anchor=NW, image=scissor_s, tags="item")
+        lbl3.configure(bg='pink') 
     update_message(choice,computer_choice)
  
 window.resizable(False,False)
