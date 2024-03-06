@@ -16,5 +16,5 @@ Ignore the above command if it doesn't raise an error.
 pip install pillow
 ```
 
-##Contributing:
+## Contributing:
 Contributions from the community are welcome. Feel free to submit pull requests, report issues, or contribute in any other way that aligns with the project.
